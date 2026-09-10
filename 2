@@ -1,0 +1,14 @@
+# Считываем строки с ID
+base_str = input("Введите базу ID: ")
+incoming_str = input("Введите входящие ID: ")
+
+# Создаем множество из разрешенных ID
+allowed = set(base_str.split())
+
+# Проходим по каждому входящему ID
+for user_id in incoming_str.split():
+    if user_id in allowed:
+        print("OK")
+    else:
+        print("ADDED")
+        allowed.add(user_id)  # Добавляем в базу
