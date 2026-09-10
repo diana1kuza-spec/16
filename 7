@@ -1,0 +1,23 @@
+# Координаты агента
+agent_x, agent_y = 2, 2
+
+# Множество безопасных точек
+points = {(1, 1), (5, 5), (0, 3)}
+
+# Инициализируем переменные для поиска минимума
+min_distance = float('inf')  # Бесконечность для первого сравнения
+best_point = None
+
+# Проходим по всем точкам множества
+for point in points:
+    x, y = point
+    # Вычисляем манхэттенское расстояние
+    distance = abs(x - agent_x) + abs(y - agent_y)
+    
+    # Если нашли точку ближе, обновляем
+    if distance < min_distance:
+        min_distance = distance
+        best_point = point
+
+print(f"Ближайшая безопасная точка: {best_point}")
+print(f"Расстояние: {min_distance}")
