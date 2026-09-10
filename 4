@@ -1,0 +1,16 @@
+# Считываем списки агентов
+tsru_str = input("Введите агентов ЦРУ: ")
+mi6_str = input("Введите агентов МИ-6: ")
+kgb_str = input("Введите агентов КГБ: ")
+
+# Создаем множества
+tsru = set(tsru_str.split())
+mi6 = set(mi6_str.split())
+kgb = set(kgb_str.split())
+
+# Двойные агенты: есть в ЦРУ И в МИ-6, НО НЕТ в КГБ
+double_agents = (tsru & mi6) - kgb
+
+# Выводим в алфавитном порядке по убыванию (от Я до А / от Z до A)
+# reverse=True обеспечивает обратный порядок
+print("Двойные агенты:", " ".join(sorted(double_agents, reverse=True)))
