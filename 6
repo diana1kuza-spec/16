@@ -1,0 +1,16 @@
+# Считываем три списка ID
+dept1_str = input("Введите ID отдела 1: ")
+dept2_str = input("Введите ID отдела 2: ")
+dept3_str = input("Введите ID отдела 3: ")
+
+# Создаем множества из введенных строк
+present_ids = set(dept1_str.split()) | set(dept2_str.split()) | set(dept3_str.split())
+
+# Создаем множество всех возможных ID от 0 до 10
+all_possible_ids = {str(i) for i in range(11)}
+
+# "Призраки" - те, кого нет ни в одном отделе
+ghosts = all_possible_ids - present_ids
+
+# Выводим в порядке возрастания
+print("Призраки:", " ".join(sorted(ghosts, key=int)))
