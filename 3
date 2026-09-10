@@ -1,0 +1,15 @@
+# Считываем данные с серверов
+server_a_str = input("Введите файлы сервера A: ")
+server_b_str = input("Введите файлы сервера B: ")
+
+# Создаем множества
+server_a = set(server_a_str.split())
+server_b = set(server_b_str.split())
+
+# Общие файлы (пересечение)
+common_files = server_a & server_b
+print("Общие:", " ".join(sorted(common_files)))
+
+# Потерянные файлы (разность: есть на A, но нет на B)
+lost_files = server_a - server_b
+print("Потерянные:", " ".join(sorted(lost_files)))
