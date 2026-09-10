@@ -1,0 +1,21 @@
+# Считываем три лога
+log1_str = input("Введите IP из лога 1: ")
+log2_str = input("Введите IP из лога 2: ")
+log3_str = input("Введите IP из лога 3: ")
+
+# Создаем множества
+log1 = set(log1_str.split())
+log2 = set(log2_str.split())
+log3 = set(log3_str.split())
+
+# Находим IP, которые есть во ВСЕХ трех логах
+all_three = log1 & log2 & log3
+
+# Собираем все уникальные IP из всех логов
+all_ips = log1 | log2 | log3
+
+# "Подозрительные" - это те, кто есть не во всех трех (исключаем all_three)
+suspicious = all_ips - all_three
+
+# Выводим в порядке возрастания
+print("Подозрительные:", " ".join(sorted(suspicious)))
